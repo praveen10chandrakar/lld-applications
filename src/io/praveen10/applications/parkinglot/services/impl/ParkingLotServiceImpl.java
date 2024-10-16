@@ -9,7 +9,7 @@ import io.praveen10.applications.parkinglot.parking.model.parking.ParkingTicket;
 import io.praveen10.applications.parkinglot.parking.model.vehicle.Vehicle;
 import io.praveen10.applications.parkinglot.parking.model.vehicle.VehicleFactory;
 import io.praveen10.applications.payment.service.Payment;
-import io.praveen10.applications.payment.service.PaymentProcessor;
+import io.praveen10.applications.payment.service.PaymentService;
 import io.praveen10.applications.parkinglot.services.ParkingLotService;
 
 import java.util.UUID;
@@ -17,11 +17,11 @@ import java.util.UUID;
 public class ParkingLotServiceImpl implements ParkingLotService {
 
     private ParkingLotManagerImpl parkingLotManager;
-    private PaymentProcessor paymentProcessor;
+    private PaymentService paymentService;
 
-    public ParkingLotServiceImpl(ParkingLotManagerImpl parkingLotManager, PaymentProcessor paymentProcessor) {
+    public ParkingLotServiceImpl(ParkingLotManagerImpl parkingLotManager, PaymentService paymentService) {
         this.parkingLotManager = parkingLotManager;
-        this.paymentProcessor = paymentProcessor;
+        this.paymentService = paymentService;
     }
 
     @Override
@@ -35,14 +35,14 @@ public class ParkingLotServiceImpl implements ParkingLotService {
     @Override
     public boolean releaseParking(Account account, ParkingTicket parkingTicket, Payment paymentMode) throws AccountException {
         validateAdmin(account);
-        parkingLotManager.releaseParkingSlot(parkingTicket);
         String transactionId = UUID.randomUUID().toString();
         try {
-            paymentProcessor.processPayment(transactionId, paymentMode, parkingTicket);
+            paymentService.processPayment(transactionId, paymentMode, parkingTicket.getTicketNumber(), parkingTicket.getCharges());
         } catch (PaymentException paymentException) {
             System.out.println("Error occurred while processing payment..");
             return false;
         }
+        parkingLotManager.releaseParkingSlot(parkingTicket);
         return true;
     }
 
