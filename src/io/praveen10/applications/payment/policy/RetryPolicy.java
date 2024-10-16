@@ -1,7 +1,7 @@
-package io.praveen10.applications.parkinglot.payment.policy;
+package io.praveen10.applications.payment.policy;
 
 import io.praveen10.applications.parkinglot.common.exceptions.PaymentException;
-import io.praveen10.applications.parkinglot.payment.service.Payment;
+import io.praveen10.applications.payment.service.Payment;
 
 public class RetryPolicy {
     private static final int MAX_RETRIES = 3;

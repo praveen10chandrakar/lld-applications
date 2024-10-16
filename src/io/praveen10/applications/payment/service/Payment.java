@@ -1,4 +1,4 @@
-package io.praveen10.applications.parkinglot.payment.service;
+package io.praveen10.applications.payment.service;
 
 import io.praveen10.applications.parkinglot.common.exceptions.PaymentException;
 

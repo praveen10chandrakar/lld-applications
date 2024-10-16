@@ -1,4 +1,4 @@
-package io.praveen10.applications.parkinglot.payment.client;
+package io.praveen10.applications.payment.client;
 
 public class PaypalClient {
 

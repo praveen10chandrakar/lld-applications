@@ -4,7 +4,7 @@ import io.praveen10.applications.parkinglot.account.model.Account;
 import io.praveen10.applications.parkinglot.common.enums.VehicleType;
 import io.praveen10.applications.parkinglot.common.exceptions.AccountException;
 import io.praveen10.applications.parkinglot.parking.model.parking.ParkingTicket;
-import io.praveen10.applications.parkinglot.payment.service.Payment;
+import io.praveen10.applications.payment.service.Payment;
 
 public interface ParkingLotService {
 

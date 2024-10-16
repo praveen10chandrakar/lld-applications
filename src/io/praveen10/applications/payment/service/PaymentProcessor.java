@@ -1,10 +1,10 @@
-package io.praveen10.applications.parkinglot.payment.service;
+package io.praveen10.applications.payment.service;
 
 import io.praveen10.applications.parkinglot.common.enums.TransactionStatus;
 import io.praveen10.applications.parkinglot.common.exceptions.PaymentException;
 import io.praveen10.applications.parkinglot.parking.model.parking.ParkingTicket;
-import io.praveen10.applications.parkinglot.payment.model.Transaction;
-import io.praveen10.applications.parkinglot.payment.policy.RetryPolicy;
+import io.praveen10.applications.payment.model.Transaction;
+import io.praveen10.applications.payment.policy.RetryPolicy;
 
 import java.util.HashMap;
 import java.util.Map;

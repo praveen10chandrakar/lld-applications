@@ -1,8 +1,8 @@
-package io.praveen10.applications.parkinglot.payment.service.impl;
+package io.praveen10.applications.payment.service.impl;
 
 import io.praveen10.applications.parkinglot.common.exceptions.PaymentException;
-import io.praveen10.applications.parkinglot.payment.client.PaypalClient;
-import io.praveen10.applications.parkinglot.payment.service.Payment;
+import io.praveen10.applications.payment.client.PaypalClient;
+import io.praveen10.applications.payment.service.Payment;
 
 public class PaypalPayment implements Payment {
 

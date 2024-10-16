@@ -1,4 +1,4 @@
-package io.praveen10.applications.parkinglot.payment.model;
+package io.praveen10.applications.payment.model;
 
 import io.praveen10.applications.parkinglot.common.enums.TransactionStatus;
 

@@ -8,8 +8,8 @@ import io.praveen10.applications.parkinglot.parking.manager.impl.ParkingLotManag
 import io.praveen10.applications.parkinglot.parking.model.parking.ParkingTicket;
 import io.praveen10.applications.parkinglot.parking.model.vehicle.Vehicle;
 import io.praveen10.applications.parkinglot.parking.model.vehicle.VehicleFactory;
-import io.praveen10.applications.parkinglot.payment.service.Payment;
-import io.praveen10.applications.parkinglot.payment.service.PaymentProcessor;
+import io.praveen10.applications.payment.service.Payment;
+import io.praveen10.applications.payment.service.PaymentProcessor;
 import io.praveen10.applications.parkinglot.services.ParkingLotService;
 
 import java.util.UUID;
@@ -18,6 +18,11 @@ public class ParkingLotServiceImpl implements ParkingLotService {
 
     private ParkingLotManagerImpl parkingLotManager;
     private PaymentProcessor paymentProcessor;
+
+    public ParkingLotServiceImpl(ParkingLotManagerImpl parkingLotManager, PaymentProcessor paymentProcessor) {
+        this.parkingLotManager = parkingLotManager;
+        this.paymentProcessor = paymentProcessor;
+    }
 
     @Override
     public ParkingTicket bookParking(Account account, String regNo, VehicleType vehicleType) throws AccountException {
